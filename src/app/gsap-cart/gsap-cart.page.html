@@ -11,12 +11,9 @@
   <ion-button id="button" (click)="flipTheBox()">FLIP</ion-button>
 
   <section class="cart-items">
+    <!-- Each cart item should have its own container it will reside in. -->
   <div class="container1" #container1 #cartItemsOpenContainer *ngFor="let item of cartItems;let i = index">
     <article class="cart-item" #item>
-      <!-- <div class="box-content">
-        <h2>Card Title</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-      </div> -->
       <div class="image"></div>
       <span class="name">Product 1</span>
       <span class="price">€44,99</span>
@@ -27,10 +24,11 @@
 
   <div class="closed-container">
     <div class="container2" #container2 #cartItemsClosedContainer *ngFor="let item of cartItems; let i = index">
-      <!-- This is where the item will be place in close position. -->
+      <!-- This is where the item will be placed once the shopping cart is in closed position. -->
     </div>
   </div>
 
 
+  <!-- Will create it as a component later on, not important for now. -->
   <!-- <app-shopping-cart-gsap class="shopping-cart"></app-shopping-cart-gsap> -->
 </ion-content>
