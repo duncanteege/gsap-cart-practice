@@ -1,0 +1,20 @@
+// Remember to change the values in the variables.scss of this app as well when changing the values here! (because variables doesn't work here)
+$breakpoints: (
+  "phone-medium": 480px,
+  "phone-big": 640px,
+  "desktop-small": 768px,
+  "desktop-normal": 1024px,
+  "desktop-rest": 1366px
+) !default;
+
+// IMPORTANT: The Consumer app is made mobile first and therefor "min-width" is used.
+@mixin mediaquery($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+  @else {
+    @warn "No value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

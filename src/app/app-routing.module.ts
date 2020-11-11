@@ -8,9 +8,13 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'gsap-cart',
     pathMatch: 'full'
   },
+  {
+    path: 'gsap-cart',
+    loadChildren: () => import('./gsap-cart/gsap-cart.module').then( m => m.GsapCartPageModule)
+  }
 ];
 
 @NgModule({

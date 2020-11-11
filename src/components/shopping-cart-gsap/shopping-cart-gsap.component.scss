@@ -1,0 +1,106 @@
+:host {
+  background: white;
+}
+
+.cart-container {
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  max-height: 80vh;
+  border: 1px solid red;
+  position: relative;
+  transition: max-height 2s ease-in-out;
+}
+
+.close-cart-button {
+  position: absolute;
+  top: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cart-items {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow: auto;
+}
+
+.item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  .image,
+  .absImage {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    background-size: cover;
+  }
+  .absImage {
+    position: absolute;
+    display: none;
+    visibility: hidden;
+    left: 0;
+    top: 0;
+    animation: animatePositionLeft 2s ease-in-out, animateToTop 2s ease-in-out;
+
+    
+    // will-change: transform;
+    // transform: translateX(0) translateY(0);
+    // animation: animateWithTranslateX 2s ease-in-out, animateWithTranslateY 2s ease-in-out;
+  }
+  .text {
+    margin-left: 16px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.cart-container.isClosed {
+  max-height: 100px;
+
+  .item {
+    width: initial;
+    margin-bottom: 0;
+    .image {
+      opacity: 0;
+      display: none;
+    }
+    .absImage {
+      display: inline-block;
+      visibility: visible;
+    }
+    .text {
+      display: none;
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes animatePositionLeft {
+  from {
+    left: 0;
+  }
+}
+
+@keyframes animateToTop {
+  to {
+    top: 0;
+  }
+}
+
+@keyframes animateWithTranslateX {
+  from {
+    transform: translateX(0);
+  }
+}
+@keyframes animateWithTranslateY {
+  to {
+    transform: translateY(0);
+  }
+}

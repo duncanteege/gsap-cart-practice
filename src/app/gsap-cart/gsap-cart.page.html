@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Blank
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-button id="button" (click)="flipTheBox()">FLIP</ion-button>
+
+  <section class="cart-items">
+  <div class="container1" #container1 #cartItemsOpenContainer *ngFor="let item of cartItems;let i = index">
+    <article class="cart-item" #item>
+      <!-- <div class="box-content">
+        <h2>Card Title</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+      </div> -->
+      <div class="image"></div>
+      <span class="name">Product 1</span>
+      <span class="price">€44,99</span>
+    </article>
+  </div>
+</section>
+
+
+  <div class="closed-container">
+    <div class="container2" #container2 #cartItemsClosedContainer *ngFor="let item of cartItems; let i = index">
+      <!-- This is where the item will be place in close position. -->
+    </div>
+  </div>
+
+
+  <!-- <app-shopping-cart-gsap class="shopping-cart"></app-shopping-cart-gsap> -->
+</ion-content>

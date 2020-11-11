@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public isClosed = true;
+
   constructor() {}
 
+  public toggleList() {
+    this.isClosed = !this.isClosed;
+  }
 }

@@ -1,0 +1,25 @@
+<main class="cart-container" [class.isClosed]="isClosed">
+  <ion-button class="close-cart-button" fill="clear" size="small" mode="md" (click)="toggleShoppingCart()">
+    <ion-icon slot="icon-only" name="caret-down-circle"></ion-icon>
+  </ion-button>
+
+  <section class="cart-items">
+    <article class="item" *ngFor="let item of [0,1,2,3,4,5]; let i = index">
+      <!-- Get the top position before closing relative to the view and use that as a starting point in [style.top.px] -->
+      <div class="image" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'"></div>
+
+      <!-- In the left/top way... -->
+      <!-- <div class="absImage" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'" [style.left.px]="60 * i"
+        [style.top.px]="isAnimating ? 64 * i : 0"></div> -->
+
+        <!-- In the transform: translate way -->
+        <!-- <div class="absImage" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'"  
+        [ngStyle]="{'transform': 'translateX(' + (60 * i) + 'px) translateY(' + (isAnimating ? 64 * i : 0) + 'px)'}"></div> -->
+
+      <div class="text">
+        <span>Name</span>
+        <span>Price</span>
+      </div>
+    </article>
+  </section>
+</main>
