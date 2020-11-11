@@ -13,6 +13,9 @@
   <section class="cart-items">
     <!-- Each cart item should have its own container it will reside in. -->
   <div class="container1" #container1 #cartItemsOpenContainer *ngFor="let item of cartItems;let i = index">
+
+    <!-- TODO: I want the animation to look more like the XD demo I showed. Now the image (which is just a div which background image later on) is being pushed away. 
+    How could one animate that? And how does one add another animation to the timeline for example the height of the shopping-cart later on? -->
     <article class="cart-item" #item>
       <div class="image"></div>
       <span class="name">Product 1</span>
