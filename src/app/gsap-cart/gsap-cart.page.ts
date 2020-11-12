@@ -13,6 +13,8 @@ export class GsapCartPage implements OnInit {
   @ViewChildren('cartItemsClosedContainer') public cartItemsClosedContainer: QueryList<ElementRef>;
 
   public cartItems = [0, 1, 2];
+  public durationOfAnimation = '0.4';
+  public goingForwards = true;
 
   constructor(private renderer: Renderer2) { }
 
@@ -24,6 +26,8 @@ export class GsapCartPage implements OnInit {
     for (let i = 0; i < items.length; i++) {
       this.flip(items[i].nativeElement, { resize: true, ease: 'power1.out' }, i);
     }
+    gsap.to('.content', { opacity: this.goingForwards ? 0 : 1, duration: this.durationOfAnimation });
+    this.goingForwards = !this.goingForwards;
   }
 
   private swapPosition(index: number) {
@@ -83,8 +87,10 @@ export class GsapCartPage implements OnInit {
       copy.scaleX = i => after[i].sx * (before[i].bw / after[i].bw);
       copy.scaleY = i => after[i].sy * (before[i].bh / after[i].bh);
     }
+    copy.duration = this.durationOfAnimation;
     copy.onComplete = () => elements.forEach((el, i) => el.style.cssText = after[i].css);
-    return tl.from(elements, copy);
+    tl.from(elements, copy);
+    return tl;
   }
 
 

@@ -12,17 +12,16 @@
 
   <section class="cart-items">
     <!-- Each cart item should have its own container it will reside in. -->
-  <div class="container1" #container1 #cartItemsOpenContainer *ngFor="let item of cartItems;let i = index">
-
-    <!-- TODO: I want the animation to look more like the XD demo I showed. Now the image (which is just a div which background image later on) is being pushed away. 
-    How could one animate that? And how does one add another animation to the timeline for example the height of the shopping-cart later on? -->
-    <article class="cart-item" #item>
-      <div class="image"></div>
-      <span class="name">Product 1</span>
-      <span class="price">€44,99</span>
-    </article>
-  </div>
-</section>
+    <div class="container1" #container1 #cartItemsOpenContainer *ngFor="let item of cartItems;let i = index">
+      <article class="cart-item" #item>
+        <div class="image"></div>
+        <div class="content">
+          <span class="name">Product 1</span>
+          <span class="price">€44,99</span>
+        </div>
+      </article>
+    </div>
+  </section>
 
 
   <div class="closed-container">
@@ -30,8 +29,5 @@
       <!-- This is where the item will be placed once the shopping cart is in closed position. -->
     </div>
   </div>
-
-
-  <!-- Will create it as a component later on, not important for now. -->
-  <!-- <app-shopping-cart-gsap class="shopping-cart"></app-shopping-cart-gsap> -->
+  
 </ion-content>

@@ -1,8 +1,6 @@
-
 ion-content {
   --background: #222;
 }
-
 
 $cart-item-height: 100px;
 .cartItems {
@@ -12,6 +10,7 @@ $cart-item-height: 100px;
   height: $cart-item-height;
   outline: 2px solid blue;
   z-index: 1;
+  margin-bottom: 16px;
 }
 
 .container2 {
@@ -23,6 +22,7 @@ $cart-item-height: 100px;
   height: $cart-item-height;
   outline: 2px solid red;
   z-index: 2;
+  margin-right: 16px;
 }
 .cart-items {
   display: flex;
@@ -39,21 +39,32 @@ $cart-item-height: 100px;
     width: 100px;
     height: 100%;
     background: red;
+    flex-shrink: 0;
   }
-  .name {
-    flex-grow: 1;
+  .content {
+    height: 100%;
+    width: 100%;
     background: green;
-  }
-  .price {
-    min-width: 50px;
-    text-align: right;
-    background: pink;
-  }
 
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: flex;
+    align-items: center;
+    .name {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+    .price {
+      flex-shrink: 1;
+      min-width: 50px;
+      text-align: right;
+      background: pink;
+    }
+  }
 }
 
 .box-content {
-  padding: 15px;  
+  padding: 15px;
 }
 
 .closed-container {
