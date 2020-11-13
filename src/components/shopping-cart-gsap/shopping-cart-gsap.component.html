@@ -1,25 +1,45 @@
-<main class="cart-container" [class.isClosed]="isClosed">
-  <ion-button class="close-cart-button" fill="clear" size="small" mode="md" (click)="toggleShoppingCart()">
-    <ion-icon slot="icon-only" name="caret-down-circle"></ion-icon>
+<main class="cart-container">
+  <ion-button class="close-cart-button" fill="clear" size="small" mode="md" (click)="toggleCartState()">
+    <ion-icon class="close-cart-icon" slot="icon-only" name="caret-down-circle"></ion-icon>
   </ion-button>
 
+  <h3 class="header">My order</h3>
+  
+
   <section class="cart-items">
-    <article class="item" *ngFor="let item of [0,1,2,3,4,5]; let i = index">
-      <!-- Get the top position before closing relative to the view and use that as a starting point in [style.top.px] -->
-      <div class="image" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'"></div>
-
-      <!-- In the left/top way... -->
-      <!-- <div class="absImage" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'" [style.left.px]="60 * i"
-        [style.top.px]="isAnimating ? 64 * i : 0"></div> -->
-
-        <!-- In the transform: translate way -->
-        <!-- <div class="absImage" [style.backgroundImage]="'url(../../assets/' + i + '.JPG)'"  
-        [ngStyle]="{'transform': 'translateX(' + (60 * i) + 'px) translateY(' + (isAnimating ? 64 * i : 0) + 'px)'}"></div> -->
-
-      <div class="text">
-        <span>Name</span>
-        <span>Price</span>
-      </div>
-    </article>
+    <!-- Each cart item should have its own container it will reside in. -->
+    <div class="open-cart-item-container" #container1 #cartItemsOpenContainer
+      *ngFor="let item of cartItems;let i = index">
+      <article class="cart-item" #item>
+        <div class="image"></div>
+        <div class="content">
+          <span class="name">Product 1</span>
+          <span class="price">€44,99</span>
+        </div>
+      </article>
+    </div>
   </section>
+
+  <section class="totals">
+    <div class="total">
+      <span class="label">Subtotaal</span>
+      <span class="value">€45,00</span>
+    </div>
+    <div class="total">
+      <span class="label">BTW (15%)</span>
+      <span class="value">€15,00</span>
+    </div>
+    <div class="total">
+      <span class="label"><strong>Totaal</strong></span>
+      <span class="value"><strong>€60,00</strong></span>
+    </div>
+  </section>
+
+
+  <div class="closed-container">
+    <div class="closed-cart-item-container" #container2 #cartItemsClosedContainer
+      *ngFor="let item of cartItems; let i = index">
+      <!-- This is where the item will be placed once the shopping cart is in closed position. -->
+    </div>
+  </div>
 </main>
